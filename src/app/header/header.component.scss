@@ -1,0 +1,61 @@
+$font-brand: 'Znikomit';
+$font-shape: 'RixYeoljeongdo_Regular';
+$font-image: 'Coolvetica';
+
+*{
+  font-size: 4rem;
+}
+
+:host{
+  height: 10rem;
+  padding-bottom: 1rem;
+
+  display: flex;
+}
+
+.italic{
+  display: inline-block;
+  transform: skewX(-15deg);
+}
+
+.left{
+  width: 20%;
+  height: 100%;
+
+  font-family: $font-brand;
+  -webkit-text-stroke: .1rem black;
+}
+
+.left__text{
+  margin-left: 5%;
+  margin-top: 1%;
+}
+
+.center{
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $font-shape;
+}
+
+.right{
+  width: 20%;
+  height: 100%;
+
+  position: relative;
+
+  font-family: $font-brand;
+  -webkit-text-stroke: .1rem black;
+}
+
+.right__text{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 5%;
+  margin-bottom: 1%;
+}
