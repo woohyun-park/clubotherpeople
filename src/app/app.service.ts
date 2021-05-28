@@ -13,7 +13,9 @@ export class AppService {
         Everyone has lived a different life<br>
         and has different thoughts.<br>
         This is a space to share creative ideas.<br>
-        and to experience various perspectives`, italicized: ""}
+        and to experience various perspectives`,
+        italicize: ["otherpeople", "different", "different", "creative ideas", "various perspectives"],
+        italicized: ""}
   constructor() {
     this.updateImgText();
     this.updateSubjectText();
@@ -21,21 +23,16 @@ export class AppService {
 
   updateImgText(): void {
     let result: string = "";
-    let isOpened: boolean = false;
-    this.imgText.original.split("").forEach((char, i) => {
-      if(char === "<"){
-        isOpened = true;
-        result += "<br>";
-        return ;
-      } else if(char === ">"){
-        isOpened = false;
-        return ;
+    let prev: number = 0;
+    this.imgText.italicize.forEach((str) => {
+      const index = this.imgText.original.indexOf(str, prev)
+      if(index != -1){
+        result += this.imgText.original.slice(prev, index);
+        result += this.italicizeStr(str);
       }
-      if(isOpened === true){
-        return ;
-      }
-      result += this.italicizeVowel(char);
-    });
+      prev = index + str.length;
+    })
+    result += this.imgText.original.slice(prev);
     this.imgText.italicized = result;
   }
 
@@ -47,6 +44,14 @@ export class AppService {
       });
       this.subjects[i].text = result;
     })
+  }
+
+  italicizeStr(str: string): string{
+    let result: string = "";
+    str.split("").forEach(char => {
+      result += this.italicizeVowel(char);
+    })
+    return result;
   }
 
   italicizeVowel(char: string): string {
