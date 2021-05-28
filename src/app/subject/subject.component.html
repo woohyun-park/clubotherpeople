@@ -1,7 +1,7 @@
 <div class="subject">
   <div class="subject__title">S<div class="italic">u</div>bj<div class="italic">e</div>cts</div>
   <div class="subject__cont">
-    <div class="subject__each"*ngFor="let subject of subjects">
+    <div class="subject__each"*ngFor="let subject of appService.subjects">
       <img class="subject__img" src="../../assets/img/{{subject.title}}.png" alt="">
       <div class="subject__text" [innerHTML]=subject.text></div>
     </div>

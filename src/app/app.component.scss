@@ -28,13 +28,14 @@ $font-image: 'Coolvetica';
 }
 
 .main__img--img{
+  position: relative;
   width: 100%;
 }
 
 .main__img--text{
   position: absolute;
   left: 2rem;
-  bottom: 2rem;
+  bottom: 37rem;
 
   font-family: $font-image;
   font-size: 5em;

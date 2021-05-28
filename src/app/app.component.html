@@ -2,12 +2,7 @@
 <div class="temp">
   <div class="main__img">
     <img class="main__img--img" src="../assets/img/main.png" alt="main.png">
-    <div class="main__img--text">
-      We are all <div class="font"><div class="italic">o</div>th<div class="italic">e</div>rp<div class="italic">eo</div>pl<div class="italic">e</div></div><br>
-      Everyone has lived a different life<br>
-      and has different thoughts.<br>
-      This is a space to share creative ideas.<br>
-      and to experience various perspectives</div>
+    <div class="main__img--text" [innerHTML]=appService.imgText.italicized>
   </div>
 <app-subject></app-subject>
 </div>
