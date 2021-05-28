@@ -17,6 +17,14 @@ $font-image: 'Coolvetica';
   -webkit-text-stroke: .1rem white;
 }
 
+.italic__title{
+  display: inline-block;
+  transform: skewX(-15deg);
+
+  font-family: $font-brand;
+  -webkit-text-stroke: .1rem black;
+}
+
 :host{
   width: 100vw;
 }
