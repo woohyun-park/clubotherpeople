@@ -16,6 +16,7 @@ $font-image: 'Coolvetica';
 .italic{
   display: inline-block;
   transform: skewX(-15deg);
+  -webkit-text-stroke: .1rem black;
 }
 
 .left{
