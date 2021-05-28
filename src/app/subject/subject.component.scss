@@ -12,6 +12,8 @@ $font-image: 'Coolvetica';
 .italic{
   display: inline-block;
   transform: skewX(-15deg);
+
+  font-family: $font-brand;
 }
 
 :host{
@@ -31,6 +33,10 @@ $font-image: 'Coolvetica';
 .subject__cont{
   display: flex;
   flex-wrap: wrap;
+
+  :hover{
+    cursor: pointer;
+  }
 }
 
 .subject__each{
@@ -46,8 +52,8 @@ $font-image: 'Coolvetica';
 
 .subject__text{
   position: absolute;
-  bottom: .5rem;
-  right: .5rem;
+  bottom: .3rem;
+  right: .8rem;
 
   font-family: $font-image;
   font-size: 3rem;

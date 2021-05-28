@@ -8,15 +8,35 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SubjectComponent implements OnInit {
   subjects = [
-    {title: "water", text: "w<div class='italic'>a</div>t<div class='italic'>e</div>r"},
-    {title: "flower", text: "fl<div class='italic'>o</div>w<div class='italic'>e</div>r"},
-    {title: "sky", text: "sky"}
+    {title: "water", text: ""},
+    {title: "flower", text: ""},
+    {title: "sky", text: ""}
   ];
   constructor() {
-
+    this.changeVowelFont();
   }
 
   ngOnInit(): void {
   }
 
+  changeVowelFont(): void {
+    this.subjects.forEach((subject, i) => {
+      let result = "";
+      subject.title.split("").forEach((char) => {
+        if(this.isVowel(char)){
+          result += `<div class='italic'>${char}</div>`;
+        } else {
+          result += char;
+        }
+      });
+      this.subjects[i].text = result;
+    })
+  }
+
+  isVowel(char: string): boolean {
+    if(char === "a" || char === "e" ||
+      char === "i" || char === "o" || char === "u")
+      return true;
+    return false;
+  }
 }
