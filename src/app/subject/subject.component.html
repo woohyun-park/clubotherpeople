@@ -6,7 +6,7 @@
 </div>
 <div class="subject">
   <div class="subject__title">S<div class="italic__title">u</div>bj<div class="italic__title">e</div>cts</div>
-  <div class="subject__cont">
+  <div class="subject__cont" (click)="movePage()">
     <div class="subject__each"*ngFor="let subject of appService.subjects">
       <img class="subject__img" src="assets/img/{{subject.title}}.png" alt="">
       <div class="subject__text" [innerHTML]=subject.text></div>

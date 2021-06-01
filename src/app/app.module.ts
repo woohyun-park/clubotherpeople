@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SubjectComponent } from './subject/subject.component';
+import { SubjectPageComponent } from './subject-page/subject-page.component';
 
 import { RouterModule, Routes } from "@angular/router";
 
 const router: Routes = [
   {path: 'home', component: SubjectComponent},
-  {path: 'test', component: HeaderComponent},
+  {path: 'subject', component: SubjectPageComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ]
 
