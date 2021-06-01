@@ -35,7 +35,7 @@ $font-image: 'Coolvetica';
 
 .subject__title{
   font-family: $font-brand;
-  font-size: 5rem;
+  font-size: min(4rem, 35px);
   -webkit-text-stroke: .1rem black;
 }
 

@@ -3,11 +3,12 @@ $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
 
 *{
-  font-size: 4rem;
+  font-size: min(4rem, 35px);
 }
 
 :host{
   height: 10rem;
+  max-height: 100px;
   padding-bottom: 1rem;
 
   display: flex;

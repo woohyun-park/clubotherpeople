@@ -36,9 +36,9 @@ $font-image: 'Coolvetica';
 .main__img--text{
   position: absolute;
   left: 3rem;
-  bottom: 39rem;
+  bottom: 37rem;
 
   font-family: $font-image;
-  font-size: 5em;
+  font-size: min(4rem, 35px);
   color: white;
 }
