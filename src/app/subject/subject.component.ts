@@ -9,10 +9,18 @@ import { AppService } from "../app.service";
 })
 export class SubjectComponent implements OnInit {
 
-  constructor(public appService: AppService) {
-
-  }
+  constructor(public appService: AppService) {}
 
   ngOnInit(): void {
+  }
+
+  displayText(n: number): void {
+    let node = <HTMLElement>(document.getElementsByClassName("subject__text")[n]);
+    node.style.opacity = "1";
+  }
+
+  hideText(n: number): void {
+    let node = <HTMLElement>(document.getElementsByClassName("subject__text")[n]);
+    node.style.opacity = "0";
   }
 }

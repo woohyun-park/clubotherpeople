@@ -2,6 +2,26 @@ $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
 
+@mixin animation ($delay, $duration, $name) {
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $name
+}
+
+@mixin keyframe ($animation_name) {
+    @keyframes #{$animation_name} {
+        @content;
+    }
+}
+
+@include keyframe (move) {
+  0% {
+     border-radius: 63% 20% 30% 10% / 40% 33% 50% 50%;
+  }
+  50% { border-radius: 13% 60% 80% 30% / 20% 36% 10% 30%;
+  }
+}
+
 .font{
   display: inline-block;
   font-family: $font-brand;
@@ -23,6 +43,18 @@ $font-image: 'Coolvetica';
 
   font-family: $font-brand;
   -webkit-text-stroke: .1rem black;
+}
+
+canvas{
+  opacity: 0;
+  position: absolute;
+  top:0;
+  left:0;
+  transition: 1s;
+}
+
+canvas:hover{
+  opacity: 0.8;
 }
 
 :host{
@@ -49,22 +81,35 @@ $font-image: 'Coolvetica';
 }
 
 .subject__each{
-  width: 15%;
+  width: 15vw;
+  height: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   position: relative;
   margin: 2.5%;
 }
 
 .subject__img{
+  position: absolute;
   width: 100%;
+  transition: 0.5s;
+}
+
+.subject__img:hover{
+  border-radius: 6.3rem 2.0rem 3.0rem 1.0rem / 4.0rem 3.3rem 5.0rem 5.0rem;
+  transition: all 3s;
+  animation: move 5s infinite alternate ease-in-out;
 }
 
 .subject__text{
   position: absolute;
-  bottom: .3rem;
-  right: .8rem;
+  opacity: 0;
 
   font-family: $font-image;
   font-size: 3rem;
   color: white;
+
+  transition: 1s;
 }
