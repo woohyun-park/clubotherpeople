@@ -5,16 +5,16 @@ const ctx = canvas.getContext('2d');
 //현재 포인트들의 좌표
 const points = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
 //3가지 디스플레이할 목표도형의 포인트들 및 목표
-let triPoints = [{x: canvas.height / 2, y:canvas.height / 10}, {x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height * 9 / 10}, {x: 0, y: canvas.height * 9 / 10}];
-let cirPoints = [{x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height / 2}, {x: canvas.height / 2, y: canvas.height}, {x: 0, y: canvas.height / 2}];
-let squPoints = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
+const triPoints = [{x: canvas.height / 2, y:canvas.height / 10}, {x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height * 9 / 10}, {x: 0, y: canvas.height * 9 / 10}];
+const cirPoints = [{x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height / 2}, {x: canvas.height / 2, y: canvas.height}, {x: 0, y: canvas.height / 2}];
+const squPoints = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
 let target = "square";
 
 //현재 색상
-const color = [{r: 0, g: 0, b:0}];
+const color = [{r: 141, g: 215, b:192}];
 //3가지 디스플레이할 목표색상 및 카운터
 const colors = [{r: 141, g: 215, b: 192}, {r:255, g:87, b:104}, {r: 1, g: 165, b: 228}];
-const colorIndex = {color: 0, count: 0};
+const colorIndex = {color: 1, count: 0};
 
 //애니메이션 호출
 requestAnimationFrame(animate.bind(ctx));
@@ -85,6 +85,9 @@ function draw(ctx){
 
 //윈도우가 로드되면
 window.onload = () => {
+  console.log(document.getElementsByClassName("cursor")[0]);
+  document.getElementsByClassName("cursor")[0].style.display = "block";
+
   //scroll 또는 mousemove 이벤트가 감지되면 커스텀 커서의 좌표를 변경해주는 함수를 실행
   window.addEventListener("scroll", matchCursor);
   window.addEventListener("mousemove", matchCursor);
@@ -109,7 +112,7 @@ window.onload = () => {
 
 //커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시키는 함수
 function matchCursor(e) {
-  let mouseCursor = document.querySelector(".cursor");
+  const mouseCursor = document.querySelector(".cursor");
   mouseCursor.style.left = e.pageX + "px";
   mouseCursor.style.top = e.pageY - scrollY + "px";
 }

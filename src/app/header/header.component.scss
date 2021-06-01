@@ -1,9 +1,20 @@
 $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
+$color-bg: #dee1e6;
 
 *{
   font-size: min(4rem, 35px);
+}
+
+.italic__nostroke{
+  display: inline-block;
+  transform: skewX(-15deg);
+}
+
+.italic{
+  @extend .italic__nostroke;
+  -webkit-text-stroke: .1rem black;
 }
 
 :host{
@@ -12,17 +23,6 @@ $font-image: 'Coolvetica';
   padding-bottom: 1rem;
 
   display: flex;
-}
-
-.italic{
-  display: inline-block;
-  transform: skewX(-15deg);
-  -webkit-text-stroke: .1rem black;
-}
-
-.italic__nostroke{
-  display: inline-block;
-  transform: skewX(-15deg);
 }
 
 .left{
@@ -67,6 +67,7 @@ $font-image: 'Coolvetica';
 .center__text--triangle,
 .center__text--circle{
   display:inline-block;
+
   transition: 0.5s;
 }
 
@@ -79,10 +80,12 @@ $font-image: 'Coolvetica';
 }
 
 .center__orbit{
-  opacity: 0;
-  position: absolute;
   width: 12rem;
   max-width: 100px;
+
+  position: absolute;
+
+  opacity: 0;
   transition: 1s;
 }
 

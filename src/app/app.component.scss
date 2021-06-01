@@ -1,18 +1,11 @@
 $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
-
-.font{
-  display: inline-block;
-  font-family: $font-brand;
-
-  margin-bottom: -.5rem;
-}
+$color-bg: #dee1e6;
 
 .italic{
   display: inline-block;
   transform: skewX(-15deg);
+
   -webkit-text-stroke: .1rem black;
 }
-
-//

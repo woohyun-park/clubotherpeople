@@ -1,13 +1,7 @@
 $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
-
-.font{
-  display: inline-block;
-  font-family: $font-brand;
-
-  margin-bottom: -.5rem;
-}
+$color-bg: #dee1e6;
 
 .italic{
   display: inline-block;
@@ -18,10 +12,7 @@ $font-image: 'Coolvetica';
 }
 
 .italic__title{
-  display: inline-block;
-  transform: skewX(-15deg);
-
-  font-family: $font-brand;
+  @extend .italic;
   -webkit-text-stroke: .1rem black;
 }
 
@@ -29,20 +20,23 @@ $font-image: 'Coolvetica';
   width: 100vw;
 }
 
-.temp{
-  height: 2000px;
+.main__cont{
+  height: 130vh;
   width: 100%;
-  background-color: #dee1e6;
+
+  background-color: $color-bg;
 }
 
 .main__img{
   width: 100%;
+
   position: relative;
 }
 
 .main__img--img{
-  position: relative;
   width: 100%;
+
+  position: relative;
 }
 
 .main__img--text{
