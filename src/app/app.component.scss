@@ -16,29 +16,3 @@ $font-image: 'Coolvetica';
 }
 
 //
-
-.temp{
-  height: 2000px;
-  width: 100%;
-  background-color: #dee1e6;
-}
-
-.main__img{
-  width: 100%;
-  position: relative;
-}
-
-.main__img--img{
-  position: relative;
-  width: 100%;
-}
-
-.main__img--text{
-  position: absolute;
-  left: 3rem;
-  bottom: 37rem;
-
-  font-family: $font-image;
-  font-size: min(4rem, 35px);
-  color: white;
-}

@@ -20,6 +20,11 @@ $font-image: 'Coolvetica';
   -webkit-text-stroke: .1rem black;
 }
 
+.italic__nostroke{
+  display: inline-block;
+  transform: skewX(-15deg);
+}
+
 .left{
   width: 20%;
   height: 100%;
@@ -46,10 +51,37 @@ $font-image: 'Coolvetica';
   align-items: center;
 
   font-family: $font-shape;
+  transition: .5s;
+  :hover{
+    cursor: pointer;
+  }
 }
 
-.center__text:hover{
-  cursor: pointer;
+.center__text{
+  z-index: 0;
+}
+
+.center__text--square,
+.center__text--triangle,
+.center__text--circle{
+  display:inline-block;
+  transition: 0.5s;
+}
+
+.center__text--square{
+  z-index: 1;
+}
+
+.center__text--circle{
+  position: relative;
+}
+
+.center__orbit{
+  opacity: 0;
+  position: absolute;
+  width: 12rem;
+  max-width: 100px;
+  transition: 1s;
 }
 
 .right{
