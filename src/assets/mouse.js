@@ -1,12 +1,14 @@
 let canvas = document.getElementsByTagName("canvas")[0];
 let ctx = canvas.getContext('2d');
-let points = [{x: 0, y:0}, {x:0, y:canvas.height}, {x: canvas.width, y: canvas.height}, {x: canvas.width, y: 0}];
-let pointsTri = {x: canvas.width / 20, y: canvas.height / 100};
-let pointsTriIndex = 0;
-let isHovered = false;
+let points = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
 let colors = [{r: 141, g: 215, b: 192}, {r:255, g:87, b:104}, {r: 1, g: 165, b: 228}];
 let color = [{r: 0, g: 0, b:0}];
 let colorIndex = {color: 0, count: 0};
+
+let triPoints = [{x: canvas.height / 2, y:canvas.height / 10}, {x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height * 9 / 10}, {x: 0, y: canvas.height * 9 / 10}];
+let cirPoints = [{x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height / 2}, {x: canvas.height / 2, y: canvas.height}, {x: 0, y: canvas.height / 2}];
+let squPoints = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
+let target = "square";
 
 requestAnimationFrame(animate.bind(ctx));
 
@@ -21,41 +23,65 @@ function draw(ctx){
   ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
   ctx.beginPath();
   // if(isHovered){
-  //   if(points[0].x < canvas.width / 2)
+  //   if(points[0].x < canvas.height / 2)
   //     points[0].x += 10;
-  //   if(points[3].x > canvas.width / 2)
+  //   if(points[3].x > canvas.height / 2)
   //     points[3].x -= 10;
   // } else {
   //   if(points[0].x > 0)
   //     points[0].x -= 10;
-  //   if(points[3].x < canvas.width)
+  //   if(points[3].x < canvas.height)
   //     points[3].x += 10;
   // }
-  if(isHovered){
-    if(pointsTriIndex < 10){
-      points[0].x += pointsTri.x;
-      points[1].y -= pointsTri.y;
-      points[2].y -= pointsTri.y;
-      points[3].x -= pointsTri.x;
-      pointsTriIndex++;
-    }
+
+  if(target === "square"){
+    points.forEach((point, n) => {
+      point.x += (squPoints[n].x - point.x) / 5;
+      point.y += (squPoints[n].y - point.y) / 5;
+    })
+  } else if(target === "triangle"){
+    points.forEach((point, n) => {
+      point.x += (triPoints[n].x - point.x) / 5;
+      point.y += (triPoints[n].y - point.y) / 5;
+    })
   } else {
-    if(pointsTriIndex >= 0){
-      points[0].x -= pointsTri.x;
-      points[1].y += pointsTri.y;
-      points[2].y += pointsTri.y;
-      points[3].x += pointsTri.x;
-      pointsTriIndex--;
-    }
+    points.forEach((point, n) => {
+      point.x += (cirPoints[n].x - point.x) / 5;
+      point.y += (cirPoints[n].y - point.y) / 5;
+    })
   }
 
-  ctx.moveTo(points[0].x, points[0].y);
-  for(let point of points){
-    ctx.lineTo(point.x, point.y);
+  // ctx.arc(50, 100, 50, 0, 2 * Math.PI);
+  // ctx.moveTo(50, 50);
+  // ctx.quadraticCurveTo(100, 50, 100, 100);
+  // ctx.quadraticCurveTo(100, 150, 50, 150);
+  // ctx.quadraticCurveTo(0, 150, 0, 100);
+  // ctx.quadraticCurveTo(0, 50, 50, 50);
+
+  if(target === "circle"){
+    if(Math.abs(points[0].x - cirPoints[0].x) < 1){
+      ctx.arc(canvas.height / 2, canvas.height / 2, canvas.height / 2, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
+      console.log("hi");
+    } else {
+      ctx.moveTo(points[0].x, points[0].y);
+      points.forEach((point, n) => {
+        ctx.quadraticCurveTo(squPoints[n].x, squPoints[n].y, point.x, point.y)
+      })
+      ctx.quadraticCurveTo(squPoints[0].x, squPoints[0].y, points[0].x, points[0].y);
+      ctx.fill();
+      ctx.closePath();
+    }
+  } else {
+    ctx.moveTo(points[0].x, points[0].y);
+    for(let point of points){
+      ctx.lineTo(point.x, point.y);
+    }
+    ctx.lineTo(points[0].x, points[0].y);
+    ctx.fill();
+    ctx.closePath();
   }
-  ctx.lineTo(points[0].x, points[0].y);
-  ctx.fill();
-  ctx.closePath();
 }
 
 
@@ -73,6 +99,9 @@ window.onload = () => {
     subject.addEventListener("mouseover", mouseOver);
     subject.addEventListener("mouseleave", mouseLeave);
   }
+
+  document.getElementsByClassName("main__img")[0].addEventListener("mouseover", mouseOverCircle);
+  document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", mouseLeave);
   setInterval(changeColor, 100);
 }
 
@@ -82,12 +111,16 @@ function cursor(e) {
   mouseCursor.style.top = e.pageY - scrollY + "px";
 }
 
-function mouseOver(e){
-  isHovered = true;
+function mouseOver(){
+  target = "triangle";
 }
 
-function mouseLeave(e){
-  isHovered = false;
+function mouseLeave(){
+  target = "square";
+}
+
+function mouseOverCircle(){
+  target = "circle";
 }
 
 // let colors = [{r: 141, g: 215, b: 192}, {r:255, g:87, b:104}, {r: 1, g: 165, b: 228}];
