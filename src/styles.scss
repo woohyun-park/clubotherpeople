@@ -1,3 +1,28 @@
+body{
+  cursor: none;
+}
+
+.cursor{
+  width: 2rem;
+  height: 2rem;
+  // border: 2px solid black;
+  // border-radius: 50%;
+  position:sticky;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  pointer-events:none;
+}
+
+canvas{
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+}
+
+.cursor-hover{
+  transform: scale(1.5);
+}
+
 // html { font-size: 62.5%; }
 html { font-size: 0.7vw; }
 .image { width: 12rem; } //120px
@@ -25,9 +50,9 @@ $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
 
-*{
-  cursor: default;
-}
+// *{
+//   cursor: url(assets/img/cursor.png), auto;
+// }
 
 body{
   margin: 0px;

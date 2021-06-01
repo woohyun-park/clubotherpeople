@@ -6,9 +6,11 @@ import { HeaderComponent } from './header/header.component';
 import { SubjectComponent } from './subject/subject.component';
 
 import { RouterModule, Routes } from "@angular/router";
+import { BlankComponent } from './blank/blank.component';
 
 const router: Routes = [
   {path: 'home', component: SubjectComponent},
+  {path: 'blank-for-reload', component: BlankComponent},
   {path: 'test', component: HeaderComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ]
@@ -18,6 +20,7 @@ const router: Routes = [
     AppComponent,
     HeaderComponent,
     SubjectComponent,
+    BlankComponent,
   ],
   imports: [
     BrowserModule,

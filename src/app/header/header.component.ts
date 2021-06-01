@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   step: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     let count = 0;
@@ -23,6 +25,14 @@ export class HeaderComponent implements OnInit {
       }
       count++;
     }, 1000);
+  }
+
+  reload(): void{
+    if(this.router.routerState.snapshot.url === '/home'){
+      location.reload();
+    } else{
+      this.router.navigate(['/home']);
+    }
   }
 
   displayOrbit(): void{

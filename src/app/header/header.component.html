@@ -2,20 +2,23 @@
   <div class="left__text">cl<div class="italic">u</div>b</div>
 </div>
 <div class="center"
-  (mouseenter)="displayOrbit()"
-  (mouseleave)="hideOrbit()">
-  <span class="center__text--square">■</span>
-  <div class="center__text">
-    <span class="center__text--triangle">▲</span>
-    <span class="center__text--circle italic__nostroke">●</span>
+  (click)="reload()">
+  <div class="center__cont"
+    (mouseenter)="displayOrbit()"
+    (mouseleave)="hideOrbit()">
+    <span class="center__text--square">■</span>
+    <div class="center__text">
+      <span class="center__text--triangle">▲</span>
+      <span class="center__text--circle italic__nostroke">●</span>
+    </div>
+    <svg class="center__orbit" viewBox="0 0 160 160">
+      <g transform="matrix(0.866, -0.5, 0.25, 0.433, 80, 80)">
+        <path class="center__orbit--path" d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FF5768">
+          <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
+        </path>
+      </g>
+    </svg>
   </div>
-  <svg class="center__orbit" viewBox="0 0 160 160">
-    <g transform="matrix(0.866, -0.5, 0.25, 0.433, 80, 80)">
-      <path class="center__orbit--path" d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#FF5768">
-        <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="1s" repeatCount="indefinite" />
-      </path>
-    </g>
-  </svg>
 </div>
 <div class="right">
   <div class="right__text"><div class="italic">o</div>th<div class="italic">e</div>rp<div class="italic">eo</div>pl<div class="italic">e</div></div>

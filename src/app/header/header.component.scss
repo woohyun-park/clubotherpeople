@@ -36,10 +36,6 @@ $font-image: 'Coolvetica';
 .left__text{
   margin-left: 10%;
   margin-top: 1%;
-
-  :hover{
-    cursor: pointer;
-  }
 }
 
 .center{
@@ -52,9 +48,15 @@ $font-image: 'Coolvetica';
 
   font-family: $font-shape;
   transition: .5s;
-  :hover{
-    cursor: pointer;
-  }
+}
+
+.center__cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $font-shape;
+  transition: .5s;
 }
 
 .center__text{
@@ -100,8 +102,4 @@ $font-image: 'Coolvetica';
   right: 0;
   margin-right: 5%;
   margin-bottom: 1%;
-
-  :hover{
-    cursor: pointer;
-  }
 }
