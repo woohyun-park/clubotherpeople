@@ -27,7 +27,6 @@ function animate(){
 
 //그려주는 함수
 function draw(ctx){
-
   if(target === "square"){
     points.forEach((point, n) => {
       point.x += (squPoints[n].x - point.x) / 5;
@@ -85,13 +84,23 @@ function draw(ctx){
 
 //윈도우가 로드되면
 window.onload = () => {
-  console.log(document.getElementsByClassName("cursor")[0]);
   document.getElementsByClassName("cursor")[0].style.display = "block";
 
   //scroll 또는 mousemove 이벤트가 감지되면 커스텀 커서의 좌표를 변경해주는 함수를 실행
   window.addEventListener("scroll", matchCursor);
   window.addEventListener("mousemove", matchCursor);
 
+  attacheEventListener();
+
+  //click했을때 페이지를 이동하는 element들에 이벤트리스너를 다시 붙여줄 수 있도록 한다
+  //home으로 이동하는 상단 로고
+  document.getElementsByClassName("center__cont")[0].addEventListener("click", attacheEventListener);
+
+  //색을 0.1초마다 다음 단계의 색으로 변경한다
+  setInterval(changeColor, 100);
+}
+
+function attacheEventListener(){
   //hover했을때 반응해야하는 element들에 이벤트리스너를 붙여준다.
   //logo를 위한 이벤트리스너
   document.getElementsByClassName("center__cont")[0].addEventListener("mouseover", setTargetToTriangle);
@@ -101,13 +110,11 @@ window.onload = () => {
   for(let subject of subjects){
     subject.addEventListener("mouseover", setTargetToTriangle);
     subject.addEventListener("mouseleave", setTargetToSquare);
+    subject.addEventListener("click", setTargetToSquare);
   }
   //img를 위한 이벤트리스너
   document.getElementsByClassName("main__img")[0].addEventListener("mouseover", setTargetToCircle);
   document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", setTargetToSquare);
-
-  //색을 0.1초마다 다음 단계의 색으로 변경한다
-  setInterval(changeColor, 100);
 }
 
 //커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시키는 함수
