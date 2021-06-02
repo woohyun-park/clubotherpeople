@@ -8,6 +8,7 @@ const points = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: can
 const triPoints = [{x: canvas.height / 2, y:canvas.height / 10}, {x: canvas.height / 2, y: canvas.height / 10}, {x: canvas.height, y: canvas.height * 9 / 10}, {x: 0, y: canvas.height * 9 / 10}];
 const cirPoints = [{x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height / 2}, {x: canvas.height / 2, y: canvas.height}, {x: 0, y: canvas.height / 2}];
 const squPoints = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
+const noPoints = {x: canvas.height / 2, y: canvas.height / 2};
 let target = "square";
 
 //현재 색상
@@ -27,7 +28,13 @@ function animate(){
 
 //그려주는 함수
 function draw(ctx){
-  if(target === "square"){
+  if(target === "noPoint"){
+    points.forEach((point, n) => {
+      point.x += (noPoints.x - point.x) / 5;
+      point.y += (noPoints.y - point.y) / 5;
+    })
+  }
+  else if(target === "square"){
     points.forEach((point, n) => {
       point.x += (squPoints[n].x - point.x) / 5;
       point.y += (squPoints[n].y - point.y) / 5;
@@ -104,8 +111,16 @@ window.onload = () => {
 function attacheEventListener(){
   //hover했을때 반응해야하는 element들에 이벤트리스너를 붙여준다.
   //logo를 위한 이벤트리스너
-  document.getElementsByClassName("center__cont")[0].addEventListener("mouseover", setTargetToTriangle);
+  document.getElementsByClassName("center__cont")[0].addEventListener("mouseover", setTargetToNoPoint);
   document.getElementsByClassName("center__cont")[0].addEventListener("mouseleave", setTargetToSquare);
+  //left와 right을 위한 이벤트리스너
+  document.getElementsByClassName("left__text")[0].addEventListener("mouseover", setTargetToNoPoint);
+  document.getElementsByClassName("left__text")[0].addEventListener("mouseleave", setTargetToSquare);
+  document.getElementsByClassName("right__text")[0].addEventListener("mouseover", setTargetToNoPoint);
+  document.getElementsByClassName("right__text")[0].addEventListener("mouseleave", setTargetToSquare);
+  //subject title을 위한 이벤트리스너
+  document.getElementsByClassName(" subject__title")[0].addEventListener("mouseover", setTargetToNoPoint);
+  document.getElementsByClassName("subject__title")[0].addEventListener("mouseleave", setTargetToSquare);
   //subject 각각을 위한 이벤트리스너
   const subjects = document.getElementsByClassName("subject__each");
   for(let subject of subjects){
@@ -131,12 +146,15 @@ function setTargetToTriangle(){
 }
 
 function setTargetToSquare(){
-  console.log(target, points);
   target = "square";
 }
 
 function setTargetToCircle(){
   target = "circle";
+}
+
+function setTargetToNoPoint(){
+  target = "noPoint";
 }
 
 //색을 변경해주는 함수
