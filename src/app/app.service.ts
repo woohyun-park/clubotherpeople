@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppService {
+  actionColors = ["#8DD7C0", "#FF5768", "#01A5E4"];
+  baseColor = "black";
   subjects = [
     {title: "water", text: ""},
     {title: "flower", text: ""},
@@ -15,7 +17,7 @@ export class AppService {
         This is a space to share creative ideas.<br>
         and to experience various perspectives`,
         italicize: ["otherpeople", "different", "different", "creative ideas", "various perspectives"],
-        italicized: ""}
+        italicized: ""};
   constructor() {
     this.updateImgText();
     this.updateSubjectText();
