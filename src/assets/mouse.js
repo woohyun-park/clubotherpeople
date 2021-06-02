@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 //현재 포인트들의 좌표
 const points = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
 //3가지 디스플레이할 목표도형의 포인트들 및 목표
-const triPoints = [{x: canvas.height / 2, y:canvas.height / 10}, {x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height * 9 / 10}, {x: 0, y: canvas.height * 9 / 10}];
+const triPoints = [{x: canvas.height / 2, y:canvas.height / 10}, {x: canvas.height / 2, y: canvas.height / 10}, {x: canvas.height, y: canvas.height * 9 / 10}, {x: 0, y: canvas.height * 9 / 10}];
 const cirPoints = [{x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.height / 2}, {x: canvas.height / 2, y: canvas.height}, {x: 0, y: canvas.height / 2}];
 const squPoints = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
 let target = "square";
@@ -61,10 +61,11 @@ function draw(ctx){
     //아직 circle로 변화중이라면 점 4개로 circle을 그려준다
     else {
       ctx.moveTo(points[0].x, points[0].y);
-      points.forEach((point, n) => {
-        ctx.quadraticCurveTo(squPoints[n].x, squPoints[n].y, point.x, point.y)
-      })
-      ctx.quadraticCurveTo(squPoints[0].x, squPoints[0].y, points[0].x, points[0].y);
+      //canvas.height / 20을 해주는 이유는 원에 가깝게 만들기 위한 커스텀
+      ctx.quadraticCurveTo(squPoints[1].x - canvas.height / 20, squPoints[1].y, points[1].x, points[1].y);
+      ctx.quadraticCurveTo(squPoints[2].x - canvas.height / 20, squPoints[2].y, points[2].x, points[2].y);
+      ctx.quadraticCurveTo(squPoints[3].x + canvas.height / 20, squPoints[3].y, points[3].x, points[3].y);
+      ctx.quadraticCurveTo(squPoints[0].x + canvas.height / 20, squPoints[0].y, points[0].x, points[0].y);
       ctx.fill();
       ctx.closePath();
     }
@@ -130,6 +131,7 @@ function setTargetToTriangle(){
 }
 
 function setTargetToSquare(){
+  console.log(target, points);
   target = "square";
 }
 
