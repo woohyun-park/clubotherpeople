@@ -2,6 +2,9 @@ $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
 $color-bg: #dee1e6;
+$color-red: rgb(255, 87, 104);
+$color-green: rgb(141, 215, 192);
+$color-blue: rgb(1, 165, 228);
 
 *{
   font-size: min(4rem, 35px);
@@ -36,6 +39,37 @@ $color-bg: #dee1e6;
 .left__text{
   margin-left: 10%;
   margin-top: 1%;
+
+  transition: 0.5s;
+
+  :hover{
+    color:transparent;
+    -webkit-text-stroke: .3rem transparent;
+  }
+}
+
+.left__text--cont{
+  display: inline-block;
+}
+
+.left__text--cont:nth-child(1){
+  background-clip: text;
+  background-color: $color-green;
+}
+
+.left__text--cont:nth-child(2){
+  background-clip: text;
+  background-color: $color-red;
+}
+
+.left__text--cont:nth-child(3){
+  background-clip: text;
+  background-color: $color-blue;
+}
+
+.left__text--cont:nth-child(4){
+  background-clip: text;
+  background-color: $color-green;
 }
 
 .center{
@@ -106,3 +140,16 @@ $color-bg: #dee1e6;
   margin-right: 5%;
   margin-bottom: 1%;
 }
+
+
+
+
+
+
+//left와 right에 hover하면 italic class빼버리고, left__text의 스타일을 아래와 같이 변경, 색을 주기적으로 바꾸어주기까지 하면 완성
+// .left__text{
+//   color:transparent;
+//   -webkit-text-stroke: .2rem transparent;
+//   background-clip: text;
+//   background-color: blue;
+// }
