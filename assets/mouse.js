@@ -145,13 +145,29 @@ function attacheEventListener(){
   //subject 각각을 위한 이벤트리스너
   const subjects = document.getElementsByClassName("subject__each");
   for(let subject of subjects){
-    subject.addEventListener("mouseover", setTargetToTriangle);
-    subject.addEventListener("mouseleave", setTargetToSquare);
+    subject.addEventListener("mouseover", () => {
+      setTargetToTriangle();
+      subject.style.filter = "grayscale(0)";
+      subject.style.transform = "scale(1.05)";
+    });
+    subject.addEventListener("mouseleave", () => {
+      setTargetToSquare();
+      subject.style.filter = "grayscale(1)";
+      subject.style.transform = "scale(1)";
+    });
     subject.addEventListener("click", setTargetToSquare);
   }
   //img를 위한 이벤트리스너
-  document.getElementsByClassName("main__img")[0].addEventListener("mouseover", setTargetToCircle);
-  document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", setTargetToSquare);
+  document.getElementsByClassName("main__img")[0].addEventListener("mouseover", () => {
+    setTargetToCircle();
+    document.getElementsByClassName("main__img")[0].style.filter = "grayscale(0)";
+    document.getElementsByClassName("main__img")[0].style.transform = "scale(1.01)";
+  });
+  document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", () => {
+    setTargetToSquare();
+    document.getElementsByClassName("main__img")[0].style.filter = "grayscale(1)";
+    document.getElementsByClassName("main__img")[0].style.transform = "";
+  });
 }
 
 //커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시키는 함수
@@ -181,6 +197,7 @@ function setTargetToNoPoint(){
 function setTitleStyleEnter(selector){
   document.getElementsByClassName(`${selector}`)[0].style.opacity = "0";
   document.getElementsByClassName(`${selector}--color`)[0].style.opacity = "1";
+  document.getElementsByClassName(`${selector}--color`)[0].style.transform = "scale(1.02)";
 }
 
 function setTitleStyleLeave(selector){
