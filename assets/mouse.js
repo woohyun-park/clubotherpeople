@@ -10,6 +10,8 @@ const cirPoints = [{x: canvas.height / 2, y: 0}, {x: canvas.height, y: canvas.he
 const squPoints = [{x: 0, y:0}, {x: canvas.height, y: 0}, {x: canvas.height, y: canvas.height}, {x:0, y:canvas.height}];
 const noPoints = {x: canvas.height / 2, y: canvas.height / 2};
 let target = "square";
+let isBackHovered = false;
+let isDetailHovered = false;
 
 //현재 색상
 const color = [{r: 141, g: 215, b:192}];
@@ -179,13 +181,40 @@ function attacheEventListener(){
       document.getElementsByClassName("main__img")[0].style.filter = "grayscale(0)";
       document.getElementsByClassName("main__img")[0].style.transform = "scale(1.01)";
     });
-  }
-  if(document.getElementsByClassName("main__img")[0] != undefined){
     document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", () => {
       setTargetToSquare();
       document.getElementsByClassName("main__img")[0].style.filter = "grayscale(1)";
       document.getElementsByClassName("main__img")[0].style.transform = "";
     });
+  }
+  //detail 페이지를 위한 이벤트리스너
+  if(document.getElementsByClassName("detail__back")[0] != undefined){
+    document.getElementsByClassName("detail__back")[0].addEventListener("mouseover", () => {
+      setTargetToTriangle();
+      document.getElementsByClassName("detail__back")[0].style.transform = "scale(1.1)";
+      isBackHovered = true;
+    })
+    document.getElementsByClassName("detail__back")[0].addEventListener("mouseleave", () => {
+      setTargetToSquare();
+      document.getElementsByClassName("detail__back")[0].style.transform = "scale(1)";
+      isBackHovered = false;
+    })
+    document.getElementsByClassName("detail__back")[0].addEventListener("click", () => {
+      isBackHovered = false;
+      setTargetToSquare();
+    })
+  }
+  if(document.getElementsByClassName("detail__title")[0] != undefined){
+    document.getElementsByClassName("detail__title")[0].addEventListener("mouseover", () => {
+      setTargetToNoPoint();
+      document.getElementsByClassName("detail__title")[0].style.transform = "scale(1.1)";
+      isDetailHovered = true;
+    })
+    document.getElementsByClassName("detail__title")[0].addEventListener("mouseleave", () => {
+      setTargetToSquare();
+      document.getElementsByClassName("detail__title")[0].style.transform = "scale(1)";
+      isDetailHovered = false;
+    })
   }
 }
 
@@ -257,5 +286,25 @@ function changeTitleColor(){
     subject.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   for(let italic of italics){
     italic.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+  }
+  if(document.getElementsByClassName("detail__back")[0] != undefined){
+    if(isBackHovered){
+      document.getElementsByClassName("detail__back")[0].style.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
+    } else {
+      document.getElementsByClassName("detail__back")[0].style.color = "black";
+    }
+  }
+  if(document.getElementsByClassName("detail__title")[0] != undefined){
+    if(isDetailHovered){
+      document.getElementsByClassName("detail__title")[0].style.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      for(let each of document.getElementsByClassName("italic__detail")){
+        each.style.webkitTextStrokeColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      }
+    } else {
+      document.getElementsByClassName("detail__title")[0].style.color = "black";
+      for(let each of document.getElementsByClassName("italic__detail")){
+        each.style.webkitTextStrokeColor = "black";
+      }
+    }
   }
 }
