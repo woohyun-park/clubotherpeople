@@ -7,9 +7,9 @@ export class AppService {
   actionColors = ["#8DD7C0", "#FF5768", "#01A5E4"];
   baseColor = "black";
   subjects = [
-    // {title: "water", text: ""},
-    // {title: "flower", text: ""},
-    // {title: "sky", text: ""}
+    {title: "water", text: ""},
+    {title: "flower", text: ""},
+    {title: "sky", text: ""},
     {title: "perfume", text: ""}
   ];
   imgText = {original: `We are all otherpeople<br>
