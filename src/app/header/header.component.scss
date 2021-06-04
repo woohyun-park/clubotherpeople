@@ -20,6 +20,15 @@ $color-blue: rgb(1, 165, 228);
   -webkit-text-stroke: .1rem black;
 }
 
+.italic__trans{
+  transform: skewX(-15deg);
+  transition: 0.5s;
+  background-clip: text;
+  background-color: transparent;
+  -webkit-text-stroke: .3rem transparent;
+  color: transparent;
+}
+
 :host{
   height: 10rem;
   max-height: 100px;
@@ -37,39 +46,34 @@ $color-blue: rgb(1, 165, 228);
 }
 
 .left__text{
-  margin-left: 10%;
-  margin-top: 1%;
+  padding: 0.5rem;
+
+  position: absolute;
+
+  margin-left: 3rem;
+  margin-top: -1rem;
 
   transition: 0.5s;
+}
 
-  :hover{
-    color:transparent;
-    -webkit-text-stroke: .3rem transparent;
-  }
+.left__text--color{
+  padding: 0.5rem;
+
+  position: absolute;
+
+  margin-left: 3rem;
+  margin-top: -1rem;
+
+  opacity: 0;
+  transition: 0.5s;
+  background-clip: text;
+  background-color: transparent;
+  -webkit-text-stroke: .3rem transparent;
+  color: transparent;
 }
 
 .left__text--cont{
   display: inline-block;
-}
-
-.left__text--cont:nth-child(1){
-  background-clip: text;
-  background-color: $color-green;
-}
-
-.left__text--cont:nth-child(2){
-  background-clip: text;
-  background-color: $color-red;
-}
-
-.left__text--cont:nth-child(3){
-  background-clip: text;
-  background-color: $color-blue;
-}
-
-.left__text--cont:nth-child(4){
-  background-clip: text;
-  background-color: $color-green;
 }
 
 .center{
@@ -134,14 +138,39 @@ $color-blue: rgb(1, 165, 228);
 }
 
 .right__text{
+  padding: 0.5rem;
+
   position: absolute;
+
   bottom: 0;
   right: 0;
-  margin-right: 5%;
-  margin-bottom: 1%;
+  margin-right: 3rem;
+  margin-bottom: 0rem;
+
+  transition: 0.5s;
 }
 
+.right__text--cont{
+  display: inline-block;
+}
 
+.right__text--color{
+  padding: 0.5rem;
+
+  position: absolute;
+
+  bottom: 0;
+  right: 0;
+  margin-right: 3rem;
+  margin-bottom: 0rem;
+
+  opacity: 0;
+  transition: 0.5s;
+  background-clip: text;
+  background-color: transparent;
+  -webkit-text-stroke: .3rem transparent;
+  color: transparent;
+}
 
 
 
