@@ -15,13 +15,18 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'NanumSquare', sans-serif !important;
+  src: "https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css";
+}
+
 $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
 $color-bg: #dee1e6;
 
 // html { font-size: 62.5%; }
-html { font-size: 0.7vw; }
+html { font-size: 0.7vw; background-color: $color-bg}
 .image { width: 12rem; } //120px
 .item { font-size: 1.6rem; } //16px
 .copyright { margin-top: 5rem; } //50px
@@ -30,6 +35,7 @@ body{
   margin: 0px;
 
   cursor: none;
+  background-color: white;
 
   //드래그 금지
   -ms-user-select: none;

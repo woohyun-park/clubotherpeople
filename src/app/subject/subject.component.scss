@@ -30,7 +30,7 @@ $color-bg: #dee1e6;
 }
 
 .main__cont{
-  height: 200vw;
+  min-height: calc(100vh - 13rem);
   width: 100%;
 
   background-color: $color-bg;
@@ -93,6 +93,10 @@ $color-bg: #dee1e6;
   display: inline-block;
 }
 
+.subject__empty{
+  height:5rem;
+}
+
 .subject__cont{
   display: flex;
   flex-wrap: wrap;
@@ -103,7 +107,6 @@ $color-bg: #dee1e6;
 
   position: relative;
   margin: 2.5%;
-  margin-top: 8rem;
 
   transition: 1s;
   filter: grayscale(1);

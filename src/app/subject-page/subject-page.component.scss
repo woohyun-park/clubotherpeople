@@ -1,6 +1,7 @@
 $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
+$font-detail: 'NanumSquare';
 $color-bg: #dee1e6;
 
 .italic__detail{
@@ -15,7 +16,7 @@ $color-bg: #dee1e6;
 }
 
 .detail__cont{
-  height: 130vh;
+  min-height: calc(100vh - 13rem);
   width: 100%;
 
   justify-content: space-between;
@@ -36,4 +37,80 @@ $color-bg: #dee1e6;
 .detail__title{
   @extend .detail__back;
   float: right;
+}
+
+.detail__piece{
+  width: 100%;
+  min-height: 35vw;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail__piece--imgRight{
+  display: inline-block;
+  height: 30vw;
+  max-width: 50vw;
+  margin: 5rem;
+  margin-right: 10rem;
+}
+
+.detail__piece--imgLeft{
+  @extend .detail__piece--imgRight;
+  margin-left: 10rem;
+}
+
+.detail__piece--titleRight{
+  margin: 1rem;
+  margin-left: 0rem;
+  margin-bottom: 3rem;
+
+  font-family: $font-shape;
+  font-size: 3rem;
+}
+
+.detail__piece--titleLeft{
+  @extend .detail__piece--titleRight;
+  margin-right: 0rem;
+}
+
+.detail__piece--authorRight{
+  margin: 1rem;
+  margin-right: 0rem;
+
+  font-family: $font-shape;
+  text-align: right;
+}
+
+.detail__piece--authorLeft{
+  @extend .detail__piece--authorRight;
+  margin-left: 0rem;
+}
+
+.detail__piece--textRight{
+  max-width: 30vw;
+  height: auto;
+
+  display: inline-block;
+  margin-top: 5rem;
+  margin-right: 10rem;
+
+  font-family: $font-detail;
+  font-size: 2rem;
+}
+
+.detail__piece--textLeft{
+  @extend .detail__piece--textRight;
+  margin-left: 10rem;
+}
+
+.detail__line{
+  width: 86vw;
+  height: .1rem;
+  margin: 2rem auto;
+  background-color: gray;
+}
+
+.detail__footer{
+  height: 10rem;
 }

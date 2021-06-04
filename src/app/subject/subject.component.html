@@ -25,6 +25,7 @@
     <div class="subject__title--cont">t</div>
     <div class="subject__title--cont">s</div>
   </span>
+  <div class="subject__empty"></div>
   <div class="subject__cont">
     <div class="subject__each" (click)="movePage(subject.title)" *ngFor="let subject of appService.subjects">
       <img class="subject__img" src="assets/img/{{subject.title}}.png" alt="">
