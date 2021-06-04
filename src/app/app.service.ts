@@ -36,7 +36,17 @@ export class AppService {
         </div>
       </div>
     `]},
-    {title: "perfume", text: ""},
+    {title: "perfume", text: "", html: `
+      <div class="detail__piece">
+        <img class="detail__piece--imgLeft" src="assets/img/perfume/moment.png" alt="moment.png">
+        <div class="detail__piece--textRight">
+          <div class="detail__piece--titleRight">MOMENT</div>
+          <div class="detail__piece--authorRight">박우현</div>
+          향은 순간을 기억한다. 사진을 보며 지나간 추억을 떠올리듯, 기억속의 향을 맡으면 그 순간의 기억이 스멀스멀 피어오른다. 복잡미묘한 순간의 기억을 다시한번 음미해보길.
+        </div>
+      </div>
+      <div class="detail__line"></div>
+    `},
     // {title: "sky", text: ""},
     // {title: "water", text: ""},
     // {title: "sky", text: ""},
