@@ -40,6 +40,9 @@ $color-bg: #dee1e6;
   width: 100%;
 
   position: relative;
+
+  transition: 1s;
+  filter: grayscale(1);
 }
 
 .main__img--img{
@@ -65,7 +68,7 @@ $color-bg: #dee1e6;
 .subject__title{
   position: absolute;
 
-  transition: 0.5s;
+  transition: 1s;
   font-family: $font-brand;
   font-size: min(4rem, 35px);
   -webkit-text-stroke: .1rem black;
@@ -79,7 +82,7 @@ $color-bg: #dee1e6;
   -webkit-text-stroke: .1rem black;
 
   opacity: 0;
-  transition: 0.5s;
+  transition: 1s;
   background-clip: text;
   background-color: transparent;
   -webkit-text-stroke: .3rem transparent;
@@ -101,6 +104,9 @@ $color-bg: #dee1e6;
   position: relative;
   margin: 2.5%;
   margin-top: 8rem;
+
+  transition: 1s;
+  filter: grayscale(1);
 }
 
 .subject__img{
