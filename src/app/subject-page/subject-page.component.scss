@@ -3,6 +3,26 @@ $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
 $color-bg: #dee1e6;
 
+.italic__detail{
+  display: inline-block;
+
+  position: relative;
+  bottom: 1rem;
+
+  transform: skewX(-15deg);
+  font-family: $font-brand;
+  -webkit-text-stroke: .5rem black;
+}
+
+.detail__title{
+  display: flex;
+
+  padding: min(10rem, 100px);
+
+  font-size: min(8rem, 80px);
+  font-family: $font-shape;
+}
+
 .main__cont{
   height: 130vh;
   width: 100%;

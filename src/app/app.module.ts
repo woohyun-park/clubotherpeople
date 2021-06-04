@@ -11,6 +11,7 @@ import { RouterModule, Routes } from "@angular/router";
 const router: Routes = [
   {path: 'home', component: SubjectComponent},
   {path: 'subject', component: SubjectPageComponent},
+  {path: 'subject/:title', component: SubjectPageComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ]
 

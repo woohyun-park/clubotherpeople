@@ -18,8 +18,8 @@ export class SubjectComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  movePage(): void {
-    this.router.navigate(['/subject']);
+  movePage(subjectTitle): void {
+    this.router.navigate([`/subject/${subjectTitle}`]);
     window.scrollTo(0, 0);
   }
 }

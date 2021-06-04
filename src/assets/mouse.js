@@ -100,15 +100,26 @@ window.onload = () => {
 
   attacheEventListener();
 
-  //click했을때 페이지를 이동하는 element들에 이벤트리스너를 다시 붙여줄 수 있도록 한다
-  //home으로 이동하는 상단 로고
-  document.getElementsByClassName("center__cont")[0].addEventListener("click", attacheEventListener);
-
   //색을 0.1초마다 다음 단계의 색으로 변경한다
   setInterval(() => {
     changeColor();
     changeTitleColor();
   }, 100);
+}
+
+//MutationObserver를 사용하여 urlchange를 감지한다
+let lastUrl = location.href;
+new MutationObserver(() => {
+  const url = location.href;
+  if (url !== lastUrl) {
+    lastUrl = url;
+    onUrlChange();
+  }
+}).observe(document, {subtree: true, childList: true});
+
+
+function onUrlChange() {
+  attacheEventListener();
 }
 
 function attacheEventListener(){
@@ -134,14 +145,18 @@ function attacheEventListener(){
     setTitleStyleLeave("right__text");
   });
   //subject title을 위한 이벤트리스너
-  document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseover", () => {
-    setTargetToNoPoint();
-    setTitleStyleEnter("subject__title");
-  });
-  document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseleave", () => {
-    setTargetToSquare();
-    setTitleStyleLeave("subject__title");
-  });
+  if(document.getElementsByClassName("subject__title--color")[0] != undefined){
+    document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseover", () => {
+      setTargetToNoPoint();
+      setTitleStyleEnter("subject__title");
+    });
+  }
+  if(document.getElementsByClassName("subject__title--color")[0] != undefined){
+    document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseleave", () => {
+      setTargetToSquare();
+      setTitleStyleLeave("subject__title");
+    });
+  }
   //subject 각각을 위한 이벤트리스너
   const subjects = document.getElementsByClassName("subject__each");
   for(let subject of subjects){
@@ -158,16 +173,20 @@ function attacheEventListener(){
     subject.addEventListener("click", setTargetToSquare);
   }
   //img를 위한 이벤트리스너
-  document.getElementsByClassName("main__img")[0].addEventListener("mouseover", () => {
-    setTargetToCircle();
-    document.getElementsByClassName("main__img")[0].style.filter = "grayscale(0)";
-    document.getElementsByClassName("main__img")[0].style.transform = "scale(1.01)";
-  });
-  document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", () => {
-    setTargetToSquare();
-    document.getElementsByClassName("main__img")[0].style.filter = "grayscale(1)";
-    document.getElementsByClassName("main__img")[0].style.transform = "";
-  });
+  if(document.getElementsByClassName("main__img")[0] != undefined){
+    document.getElementsByClassName("main__img")[0].addEventListener("mouseover", () => {
+      setTargetToCircle();
+      document.getElementsByClassName("main__img")[0].style.filter = "grayscale(0)";
+      document.getElementsByClassName("main__img")[0].style.transform = "scale(1.01)";
+    });
+  }
+  if(document.getElementsByClassName("main__img")[0] != undefined){
+    document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", () => {
+      setTargetToSquare();
+      document.getElementsByClassName("main__img")[0].style.filter = "grayscale(1)";
+      document.getElementsByClassName("main__img")[0].style.transform = "";
+    });
+  }
 }
 
 //커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시키는 함수
@@ -234,7 +253,8 @@ function changeTitleColor(){
   const italics = document.getElementsByClassName("italic__trans");
   left.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   right.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
-  subject.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+  if(subject != undefined)
+    subject.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   for(let italic of italics){
     italic.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   }
