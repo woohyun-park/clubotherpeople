@@ -119,23 +119,29 @@ function attacheEventListener(){
   //left와 right을 위한 이벤트리스너
   document.getElementsByClassName("left__text--color")[0].addEventListener("mouseover", () => {
     setTargetToNoPoint();
-    setLeftTitleStyleEnter();
+    setTitleStyleEnter("left__text");
   });
   document.getElementsByClassName("left__text--color")[0].addEventListener("mouseleave", () => {
     setTargetToSquare();
-    setLeftTitleStyleLeave();
+    setTitleStyleLeave("left__text");
   });
   document.getElementsByClassName("right__text--color")[0].addEventListener("mouseover", () => {
     setTargetToNoPoint();
-    setRightTitleStyleEnter();
+    setTitleStyleEnter("right__text");
   });
   document.getElementsByClassName("right__text--color")[0].addEventListener("mouseleave", () => {
     setTargetToSquare();
-    setRightTitleStyleLeave();
+    setTitleStyleLeave("right__text");
   });
   //subject title을 위한 이벤트리스너
-  document.getElementsByClassName(" subject__title")[0].addEventListener("mouseover", setTargetToNoPoint);
-  document.getElementsByClassName("subject__title")[0].addEventListener("mouseleave", setTargetToSquare);
+  document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseover", () => {
+    setTargetToNoPoint();
+    setTitleStyleEnter("subject__title");
+  });
+  document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseleave", () => {
+    setTargetToSquare();
+    setTitleStyleLeave("subject__title");
+  });
   //subject 각각을 위한 이벤트리스너
   const subjects = document.getElementsByClassName("subject__each");
   for(let subject of subjects){
@@ -172,24 +178,14 @@ function setTargetToNoPoint(){
   target = "noPoint";
 }
 
-function setLeftTitleStyleEnter(){
-  document.getElementsByClassName("left__text")[0].style.opacity = "0";
-  document.getElementsByClassName("left__text--color")[0].style.opacity = "1";
+function setTitleStyleEnter(selector){
+  document.getElementsByClassName(`${selector}`)[0].style.opacity = "0";
+  document.getElementsByClassName(`${selector}--color`)[0].style.opacity = "1";
 }
 
-function setLeftTitleStyleLeave(){
-  document.getElementsByClassName("left__text")[0].style.opacity = "1";
-  document.getElementsByClassName("left__text--color")[0].style.opacity = "0";
-}
-
-function setRightTitleStyleEnter(){
-  document.getElementsByClassName("right__text")[0].style.opacity = "0";
-  document.getElementsByClassName("right__text--color")[0].style.opacity = "1";
-}
-
-function setRightTitleStyleLeave(){
-  document.getElementsByClassName("right__text")[0].style.opacity = "1";
-  document.getElementsByClassName("right__text--color")[0].style.opacity = "0";
+function setTitleStyleLeave(selector){
+  document.getElementsByClassName(`${selector}`)[0].style.opacity = "1";
+  document.getElementsByClassName(`${selector}--color`)[0].style.opacity = "0";
 }
 
 //색을 변경해주는 함수
@@ -217,9 +213,11 @@ function changeColor(){
 function changeTitleColor(){
   const left = document.getElementsByClassName("left__text--color")[0];
   const right = document.getElementsByClassName("right__text--color")[0];
+  const subject = document.getElementsByClassName("subject__title--color")[0];
   const italics = document.getElementsByClassName("italic__trans");
   left.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   right.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+  subject.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   for(let italic of italics){
     italic.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   }

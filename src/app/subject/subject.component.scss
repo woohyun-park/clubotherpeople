@@ -16,6 +16,15 @@ $color-bg: #dee1e6;
   -webkit-text-stroke: .1rem black;
 }
 
+.italic__trans{
+  transform: skewX(-15deg);
+  transition: 0.5s;
+  background-clip: text;
+  background-color: transparent;
+  -webkit-text-stroke: .3rem transparent;
+  color: transparent;
+}
+
 :host{
   width: 100vw;
 }
@@ -54,9 +63,31 @@ $color-bg: #dee1e6;
 }
 
 .subject__title{
+  position: absolute;
+
+  transition: 0.5s;
   font-family: $font-brand;
   font-size: min(4rem, 35px);
   -webkit-text-stroke: .1rem black;
+}
+
+.subject__title--color{
+  position: absolute;
+
+  font-family: $font-brand;
+  font-size: min(4rem, 35px);
+  -webkit-text-stroke: .1rem black;
+
+  opacity: 0;
+  transition: 0.5s;
+  background-clip: text;
+  background-color: transparent;
+  -webkit-text-stroke: .3rem transparent;
+  color: transparent;
+}
+
+.subject__title--cont{
+  display: inline-block;
 }
 
 .subject__cont{
@@ -69,6 +100,7 @@ $color-bg: #dee1e6;
 
   position: relative;
   margin: 2.5%;
+  margin-top: 8rem;
 }
 
 .subject__img{

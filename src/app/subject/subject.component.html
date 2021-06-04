@@ -5,7 +5,26 @@
   </div>
 </div>
 <div class="subject">
-  <span class="subject__title">S<div class="italic__title">u</div>bj<div class="italic__title">e</div>cts</span>
+  <span class="subject__title">
+    <div class="subject__title--cont">s</div>
+    <div class="subject__title--cont italic__title">u</div>
+    <div class="subject__title--cont">b</div>
+    <div class="subject__title--cont">j</div>
+    <div class="subject__title--cont italic__title">e</div>
+    <div class="subject__title--cont">c</div>
+    <div class="subject__title--cont">t</div>
+    <div class="subject__title--cont">s</div>
+  </span>
+  <span class="subject__title--color">
+    <div class="subject__title--cont">s</div>
+    <div class="subject__title--cont italic__trans">u</div>
+    <div class="subject__title--cont">b</div>
+    <div class="subject__title--cont">j</div>
+    <div class="subject__title--cont italic__trans">e</div>
+    <div class="subject__title--cont">c</div>
+    <div class="subject__title--cont">t</div>
+    <div class="subject__title--cont">s</div>
+  </span>
   <div class="subject__cont">
     <div class="subject__each" (click)="movePage()" *ngFor="let subject of appService.subjects">
       <img class="subject__img" src="assets/img/{{subject.title}}.png" alt="">
