@@ -7,25 +7,33 @@ $color-bg: #dee1e6;
   display: inline-block;
 
   position: relative;
-  bottom: 1rem;
 
+  transition: 0.5s;
   transform: skewX(-15deg);
   font-family: $font-brand;
   -webkit-text-stroke: .5rem black;
 }
 
-.detail__title{
-  display: flex;
+.detail__cont{
+  height: 130vh;
+  width: 100%;
 
-  padding: min(10rem, 100px);
+  justify-content: space-between;
 
+  background-color: $color-bg;
+}
+
+.detail__back{
+  display: inline-block;
+
+  margin: min(10rem, 100px);
+
+  transition: 0.5s;
   font-size: min(8rem, 80px);
   font-family: $font-shape;
 }
 
-.main__cont{
-  height: 130vh;
-  width: 100%;
-
-  background-color: $color-bg;
+.detail__title{
+  @extend .detail__back;
+  float: right;
 }

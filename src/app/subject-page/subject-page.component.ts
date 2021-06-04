@@ -25,4 +25,8 @@ export class SubjectPageComponent implements OnInit {
     this.html = this.appService.subjects[this.index].text.replace(/italic/gi, "italic__detail");
   }
 
+  moveBack(): void{
+    this.router.navigateByUrl('/home');
+  }
+
 }
