@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
     } else{
       this.router.navigate(['/home']);
     }
+    window.scrollTo(0, 0);
   }
 
   animateOrbit(): void {

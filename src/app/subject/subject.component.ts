@@ -20,5 +20,6 @@ export class SubjectComponent implements OnInit {
 
   movePage(): void {
     this.router.navigate(['/subject']);
+    window.scrollTo(0, 0);
   }
 }
