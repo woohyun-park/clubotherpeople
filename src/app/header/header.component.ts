@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit {
   constructor(private appService: AppService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.changeOrbitColor();
   }
 
   //로고를 눌렀을때 홈페이리자면 페이지를 리로드. 다른 페이지라면 홈페이지로 이동
@@ -24,15 +23,6 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/home']);
     }
     window.scrollTo(0, 0);
-  }
-
-  changeOrbitColor(): void {
-    let count = 0;
-    setInterval(() => {
-      const path = <HTMLElement>(document.querySelector(".center__orbit--path"));
-      path.style.fill = this.appService.actionColors[count % 3];
-      count++;
-    }, 1000);
   }
 
   displayOrbit(): void{
