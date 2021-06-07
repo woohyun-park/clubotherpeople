@@ -7,7 +7,7 @@ export class AppService {
   actionColors = ["#8DD7C0", "#FF5768", "#01A5E4"];
   baseColor = "black";
   subjects = [
-    {title: "flower", text: "", html: [`
+    {title: "flower", text: "", detail: "", html: [`
       <div class="detail__piece">
         <img class="detail__piece--imgLeft" src="assets/img/flower/아르장퇴유의 양귀비 꽃.jpg" alt="아르장퇴유의 양귀비 꽃.jpg">
         <div class="detail__piece--textRight">
@@ -36,7 +36,7 @@ export class AppService {
         </div>
       </div>
     `]},
-    {title: "perfume", text: "", html: `
+    {title: "perfume", text: "", detail: "", html: `
       <div class="detail__piece">
         <img class="detail__piece--imgLeft" src="assets/img/perfume/moment.png" alt="moment.png">
         <div class="detail__piece--textRight">
@@ -83,11 +83,14 @@ export class AppService {
 
   updateSubjectText(): void {
     this.subjects.forEach((subject, i) => {
-      let result = "";
+      let text = "";
+      let detail = "";
       subject.title.split("").forEach((char) => {
-        result += this.italicizeVowel(char);
+        text += this.italicizeVowel(char);
+        detail += this.italicizeVowelDetailTitle(char);
       });
-      this.subjects[i].text = result;
+      this.subjects[i].text = text;
+      this.subjects[i].detail = detail;
     })
   }
 
@@ -104,6 +107,21 @@ export class AppService {
       return `<div class='italic'>${char}</div>`;
     return char;
   }
+
+  italicizeDetailTitle(str: string): string{
+    let result: string = "";
+    str.split("").forEach(char => {
+      result += this.italicizeVowelDetailTitle(char);
+    })
+    return result;
+  }
+
+  italicizeVowelDetailTitle(char: string): string {
+    if(this.isVowel(char))
+      return `<div class='detail__title--cont italic__detail'>${char}</div>`;
+    return `<div class="detail__title--cont">${char}</div>`;
+  }
+
 
   isVowel(char: string): boolean {
     if(char === "a" || char === "e" ||
