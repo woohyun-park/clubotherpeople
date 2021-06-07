@@ -346,7 +346,7 @@ function changeTitleColor(title){
 }
 
 function changeBackColor(){
-  const elem = document.getElementsByClassName("detail__back")[0]
+  const elem = document.getElementsByClassName("detail__back")[0];
   if(elem != undefined){
     if(isBackHovered){
       elem.style.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
@@ -356,7 +356,15 @@ function changeBackColor(){
   }
 }
 
+function changeOrbitColor(){
+  const elem = document.getElementsByClassName("center__orbit--path")[0];
+  if(elem != undefined){
+    elem.style.fill = `rgb(${color.r}, ${color.g}, ${color.b})`;
+  }
+}
+
 function changeTitleColorAll(){
+  changeOrbitColor();
   changeTitleColor("left__text");
   changeTitleColor("right__text");
   changeTitleColor("subject__title");
