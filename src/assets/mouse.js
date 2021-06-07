@@ -12,6 +12,9 @@ const noPoints = {x: canvas.height / 2, y: canvas.height / 2};
 let target = "square";
 let isBackHovered = false;
 let isDetailHovered = false;
+let isLeftTitleHovered = false;
+let isRightTitleHovered = false;
+let isSubjectTitleHovered = false;
 
 //현재 색상
 const color = [{r: 141, g: 215, b:192}];
@@ -129,35 +132,44 @@ function attacheEventListener(){
   //logo를 위한 이벤트리스너
   document.getElementsByClassName("center__cont")[0].addEventListener("mouseover", setTargetToNoPoint);
   document.getElementsByClassName("center__cont")[0].addEventListener("mouseleave", setTargetToSquare);
-  //left와 right을 위한 이벤트리스너
-  document.getElementsByClassName("left__text--color")[0].addEventListener("mouseover", () => {
-    setTargetToNoPoint();
-    setTitleStyleEnter("left__text");
-  });
-  document.getElementsByClassName("left__text--color")[0].addEventListener("mouseleave", () => {
-    setTargetToSquare();
-    setTitleStyleLeave("left__text");
-  });
-  document.getElementsByClassName("right__text--color")[0].addEventListener("mouseover", () => {
-    setTargetToNoPoint();
-    setTitleStyleEnter("right__text");
-  });
-  document.getElementsByClassName("right__text--color")[0].addEventListener("mouseleave", () => {
-    setTargetToSquare();
-    setTitleStyleLeave("right__text");
-  });
-  //subject title을 위한 이벤트리스너
-  if(document.getElementsByClassName("subject__title--color")[0] != undefined){
-    document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseover", () => {
+  //left title을 위한 이벤트리스너
+  if(document.getElementsByClassName("left__text")[0] != undefined){
+    document.getElementsByClassName("left__text")[0].addEventListener("mouseover", () => {
       setTargetToNoPoint();
-      setTitleStyleEnter("subject__title");
-    });
-  }
-  if(document.getElementsByClassName("subject__title--color")[0] != undefined){
-    document.getElementsByClassName("subject__title--color")[0].addEventListener("mouseleave", () => {
+      document.getElementsByClassName("left__text")[0].style.transform = "scale(1.1)";
+      isLeftTitleHovered = true;
+    })
+    document.getElementsByClassName("left__text")[0].addEventListener("mouseleave", () => {
       setTargetToSquare();
-      setTitleStyleLeave("subject__title");
-    });
+      document.getElementsByClassName("left__text")[0].style.transform = "scale(1)";
+      isLeftTitleHovered = false;
+    })
+  }
+  //right title을 위한 이벤트리스너
+  if(document.getElementsByClassName("right__text")[0] != undefined){
+    document.getElementsByClassName("right__text")[0].addEventListener("mouseover", () => {
+      setTargetToNoPoint();
+      document.getElementsByClassName("right__text")[0].style.transform = "scale(1.1)";
+      isRightTitleHovered = true;
+    })
+    document.getElementsByClassName("right__text")[0].addEventListener("mouseleave", () => {
+      setTargetToSquare();
+      document.getElementsByClassName("right__text")[0].style.transform = "scale(1)";
+      isRightTitleHovered = false;
+    })
+  }
+  //subject title을 위한 이벤트리스너
+  if(document.getElementsByClassName("subject__title")[0] != undefined){
+    document.getElementsByClassName("subject__title")[0].addEventListener("mouseover", () => {
+      setTargetToNoPoint();
+      document.getElementsByClassName("subject__title")[0].style.transform = "scale(1.1)";
+      isSubjectTitleHovered = true;
+    })
+    document.getElementsByClassName("subject__title")[0].addEventListener("mouseleave", () => {
+      setTargetToSquare();
+      document.getElementsByClassName("subject__title")[0].style.transform = "scale(1)";
+      isSubjectTitleHovered = false;
+    })
   }
   //subject 각각을 위한 이벤트리스너
   const subjects = document.getElementsByClassName("subject__each");
@@ -276,12 +288,8 @@ function changeColor(){
 }
 
 function changeTitleColor(){
-  const left = document.getElementsByClassName("left__text--color")[0];
-  const right = document.getElementsByClassName("right__text--color")[0];
   const subject = document.getElementsByClassName("subject__title--color")[0];
   const italics = document.getElementsByClassName("italic__trans");
-  left.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
-  right.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   if(subject != undefined)
     subject.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   for(let italic of italics){
@@ -292,6 +300,47 @@ function changeTitleColor(){
       document.getElementsByClassName("detail__back")[0].style.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
     } else {
       document.getElementsByClassName("detail__back")[0].style.color = "black";
+    }
+  }
+
+
+  if(document.getElementsByClassName("left__text")[0] != undefined){
+    if(isLeftTitleHovered){
+      document.getElementsByClassName("left__text")[0].style.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      for(let each of document.getElementsByClassName("left__text--cont")){
+        each.style.webkitTextStrokeColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      }
+    } else {
+      document.getElementsByClassName("left__text")[0].style.color = "black";
+      for(let each of document.getElementsByClassName("left__text--cont")){
+        each.style.webkitTextStrokeColor = "black";
+      }
+    }
+  }
+  if(document.getElementsByClassName("right__text")[0] != undefined){
+    if(isRightTitleHovered){
+      document.getElementsByClassName("right__text")[0].style.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      for(let each of document.getElementsByClassName("right__text--cont")){
+        each.style.webkitTextStrokeColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      }
+    } else {
+      document.getElementsByClassName("right__text")[0].style.color = "black";
+      for(let each of document.getElementsByClassName("right__text--cont")){
+        each.style.webkitTextStrokeColor = "black";
+      }
+    }
+  }
+  if(document.getElementsByClassName("subject__title")[0] != undefined){
+    if(isSubjectTitleHovered){
+      document.getElementsByClassName("subject__title")[0].style.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      for(let each of document.getElementsByClassName("subject__title--cont")){
+        each.style.webkitTextStrokeColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+      }
+    } else {
+      document.getElementsByClassName("subject__title")[0].style.color = "black";
+      for(let each of document.getElementsByClassName("subject__title--cont")){
+        each.style.webkitTextStrokeColor = "black";
+      }
     }
   }
   if(document.getElementsByClassName("detail__title")[0] != undefined){
