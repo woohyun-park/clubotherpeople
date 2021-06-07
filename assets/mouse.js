@@ -130,8 +130,10 @@ function onUrlChange() {
 function attacheEventListener(){
   //hover했을때 반응해야하는 element들에 이벤트리스너를 붙여준다.
   //logo를 위한 이벤트리스너
-  document.getElementsByClassName("center__cont")[0].addEventListener("mouseover", setTargetToNoPoint);
-  document.getElementsByClassName("center__cont")[0].addEventListener("mouseleave", setTargetToSquare);
+  if(document.getElementsByClassName("center__cont")[0] != undefined){
+    document.getElementsByClassName("center__cont")[0].addEventListener("mouseover", setTargetToNoPoint);
+    document.getElementsByClassName("center__cont")[0].addEventListener("mouseleave", setTargetToSquare);
+  }
   //left title을 위한 이벤트리스너
   if(document.getElementsByClassName("left__text")[0] != undefined){
     document.getElementsByClassName("left__text")[0].addEventListener("mouseover", () => {
