@@ -58,22 +58,6 @@ $color-blue: rgb(1, 165, 228);
   transition: 1s;
 }
 
-.left__text--color{
-  padding: 0.5rem;
-
-  position: absolute;
-
-  margin-left: 3rem;
-  margin-top: -1rem;
-
-  opacity: 0;
-  transition: 1s;
-  background-clip: text;
-  background-color: transparent;
-  -webkit-text-stroke: .3rem transparent;
-  color: transparent;
-}
-
 .left__text--cont{
   display: inline-block;
 }
@@ -155,32 +139,3 @@ $color-blue: rgb(1, 165, 228);
 .right__text--cont{
   display: inline-block;
 }
-
-.right__text--color{
-  padding: 0.5rem;
-
-  position: absolute;
-
-  bottom: 0;
-  right: 0;
-  margin-right: 3rem;
-  margin-bottom: 0rem;
-
-  opacity: 0;
-  transition: 1s;
-  background-clip: text;
-  background-color: transparent;
-  -webkit-text-stroke: .3rem transparent;
-  color: transparent;
-}
-
-
-
-
-//left와 right에 hover하면 italic class빼버리고, left__text의 스타일을 아래와 같이 변경, 색을 주기적으로 바꾸어주기까지 하면 완성
-// .left__text{
-//   color:transparent;
-//   -webkit-text-stroke: .2rem transparent;
-//   background-clip: text;
-//   background-color: blue;
-// }
