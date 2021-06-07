@@ -9,7 +9,7 @@ export class AppService {
   subjects = [
     {title: "flower", text: "", html: [`
       <div class="detail__piece">
-        <img class="detail__piece--imgLeft" src="https://post-phinf.pstatic.net/MjAxODExMDFfMjQ0/MDAxNTQxMDc1OTYxNTQ1.swIFGuyl3AYqIIXURgGUzwhcfcHuPKQSGEqALrLXvJog.z-H2r8p-xtUxUYeJy9dqMx4QSezkf0jNwznlYr3gIhIg.JPEG/%EB%AA%A8%EB%84%A4_%EC%95%84%EB%A5%B4%EC%9E%A5%ED%87%B4%EC%9C%A0%EC%9D%98_%EC%96%91%EA%B7%80%EB%B9%84%EA%BD%83%281873%29.JPG?type=w1200" alt="">
+        <img class="detail__piece--imgLeft" src="assets/img/flower/아르장퇴유의 양귀비 꽃.jpg" alt="아르장퇴유의 양귀비 꽃.jpg">
         <div class="detail__piece--textRight">
           <div class="detail__piece--titleRight">아르장퇴유의 양귀비 꽃</div>
           <div class="detail__piece--authorRight">클로드 모네</div>
@@ -23,11 +23,11 @@ export class AppService {
           <div class="detail__piece--authorLeft">클로드 모네</div>
           이 시리즈는 본래 1876년, 모네의 아내와 아들을 모델로 시작되었습니다. 안타깝게도 모네의 아내는 32살에 일찍 세상을 떠났습니다. 이제 막 인정받기 시작하여 작품 활동에 전념해야 할 시기였지만, 홀로 어린 두 아들도 길러야 했습니다. 이때 호슈데 부인이 모네의 아이들을 돌봐 줍니다. 그녀는 모네의 작품을 많이 사주었던 부유한 벨기에 컬렉터의 부인이었습니다. 남편이 파산하고 떠나버린 후 부인은 여섯 아이들과 홀로 남습니다.
         </div>
-        <img class="detail__piece--imgRight" src="https://lh3.googleusercontent.com/proxy/EfRnrbc_YQAvPu0m6GqJ1FwA4gowia46h-HDaE_k_KYXV6SvRtqooUgLTXhOqDUrKDdGCvzsr1d02xfbUI7o3ASbq8Ga2ZQznu1WoV4HU_6zfhMCEfdioTelq7pTbXa_4q-WnacyoxgcOH2Vs5_ZXg" alt="">
+        <img class="detail__piece--imgRight" src="assets/img/flower/양산을 든 여인.jpg" alt="양산을 든 여인.jpg">
       </div>
       <div class="detail__line"></div>
       <div class="detail__piece">
-        <img class="detail__piece--imgLeft" src="http://img.khan.co.kr/news/r/1100xX/2019/01/14/2019011401001542500118421.jpg" alt="">
+        <img class="detail__piece--imgLeft" src="assets/img/flower/수련.jpg" alt="수련.jpg">
         <div class="detail__piece--textRight">
           <div class="detail__piece--titleRight">수련</div>
           <div class="detail__piece--authorRight">클로드 모네</div>

@@ -10,20 +10,23 @@
 
 @font-face {
     font-family: 'RixYeoljeongdo_Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    src: url('assets/font/RixYeoljeongdo Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'NanumSquare', sans-serif !important;
-  src: "https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css";
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('assets/font/NEXON Lv1 Gothic OTF.woff') format('woff');
 }
 
 $font-brand: 'Znikomit';
 $font-shape: 'RixYeoljeongdo_Regular';
 $font-image: 'Coolvetica';
+$font-detail: 'NEXON Lv1 Gothic OTF';
+
 $color-bg: #dee1e6;
+$color-red: rgb(255, 87, 104);
+$color-green: rgb(141, 215, 192);
+$color-blue: rgb(1, 165, 228);
 
 // html { font-size: 62.5%; }
 html { font-size: 0.7vw; background-color: $color-bg}
