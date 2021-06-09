@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,15 @@ export class AppService {
         </div>
       </div>
       <div class="detail__line"></div>
+      <div class="detail__piece">
+        <div class="detail__piece--textLeft">
+          <div class="detail__piece--titleLeft">Nostalgia</div>
+          <div class="detail__piece--authorLeft">강민혁</div>
+          친했던 친구들과 오랜만에 술한잔 하고 집에 돌아가는 길, 그때 그 향수에 취해 옛 기억을 되짚어보는 나
+        </div>
+        <iframe class="detail__piece--iframeRight" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/474427755&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+      </div>
+      <div class="detail__line"></div>
     `},
     // {title: "sky", text: ""},
     // {title: "water", text: ""},
@@ -61,7 +71,7 @@ export class AppService {
         and to experience various perspectives`,
         italicize: ["otherpeople", "different", "different", "creative ideas", "various perspectives"],
         italicized: ""};
-  constructor() {
+  constructor(public sanitizer: DomSanitizer) {
     this.updateImgText();
     this.updateSubjectText();
   }
@@ -122,11 +132,15 @@ export class AppService {
     return `<div class="detail__title--cont">${char}</div>`;
   }
 
-
   isVowel(char: string): boolean {
     if(char === "a" || char === "e" ||
       char === "i" || char === "o" || char === "u")
       return true;
     return false;
+  }
+
+  getHtml(i: number): any{
+    const str = "" + this.subjects[i].html;
+    return this.sanitizer.bypassSecurityTrustHtml(str);
   }
 }

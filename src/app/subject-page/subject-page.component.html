@@ -1,6 +1,6 @@
 <div class="detail__cont">
   <div class="detail__back" (click)="moveBack()">↜</div>
   <div class="detail__title" [innerHTML]=this.html></div>
-  <span [innerHTML]=this.appService.subjects[this.index].html></span>
+  <span [innerHTML]=this.appService.getHtml(this.index)></span>
   <div class="detail__footer"></div>
 </div>
