@@ -18,7 +18,7 @@ export class AppService {
         </div>
       </div>
       <div class="detail__line"></div>
-      <div class="detail__piece">
+      <div class="detail__piece reverse">
         <div class="detail__piece--textLeft">
           <div class="detail__piece--titleLeft">Nostalgia</div>
           <div class="detail__piece--authorLeft">강민혁</div>
