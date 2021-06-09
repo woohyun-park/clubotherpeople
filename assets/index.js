@@ -220,6 +220,15 @@ function attachEventListenerBack(){
   }
 }
 
+function attachEventListenerMusic(){
+  if(document.getElementsByTagName("iframe").length != 0){
+    for(let elem of document.getElementsByTagName("iframe")){
+      elem.addEventListener("mouseover", setTargetToNoPoint);
+      elem.addEventListener("mouseleave", setTargetToSquare);
+    }
+  }
+}
+
 function attachEventListener(){
   //hover했을때 반응해야하는 element들에 이벤트리스너를 붙여준다.
 
@@ -235,6 +244,8 @@ function attachEventListener(){
 
   attachEventListenerBack();
   attachEventListenerTitle("detail__title");
+
+  attachEventListenerMusic();
 }
 
 function observeUrlChange(){
