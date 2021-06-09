@@ -146,10 +146,10 @@ window.onload = () => {
 }
 
 function attachEventListenerLogo(){
-  const logo = document.getElementsByClassName("center__cont")[0];
-  if(logo != undefined){
-    logo.addEventListener("mouseover", setTargetToNoPoint);
-    logo.addEventListener("mouseleave", setTargetToSquare);
+  const elem = document.getElementsByClassName("center__cont")[0];
+  if(elem != undefined){
+    elem.addEventListener("mouseover", setTargetToNoPoint);
+    elem.addEventListener("mouseleave", setTargetToSquare);
   }
 }
 
@@ -170,59 +170,72 @@ function attachEventListenerTitle(title){
 }
 
 function attachEventListenerSubjects(){
-  const subjects = document.getElementsByClassName("subject__each");
-  for(let subject of subjects){
-    subject.addEventListener("mouseover", () => {
+  const elems = document.getElementsByClassName("subject__each");
+  for(let elem of elems){
+    elem.addEventListener("mouseover", () => {
       setTargetToTriangle();
-      subject.style.filter = "grayscale(0)";
-      subject.style.transform = "scale(1.05)";
+      elem.style.filter = "grayscale(0)";
+      elem.style.transform = "scale(1.05)";
     });
-    subject.addEventListener("mouseleave", () => {
+    elem.addEventListener("mouseleave", () => {
       setTargetToSquare();
-      subject.style.filter = "grayscale(1)";
-      subject.style.transform = "scale(1)";
+      elem.style.filter = "grayscale(1)";
+      elem.style.transform = "scale(1)";
     });
-    subject.addEventListener("click", setTargetToSquare);
+    elem.addEventListener("click", setTargetToSquare);
   }
 }
 
 function attachEventListenerMainImg(){
-  if(document.getElementsByClassName("main__img")[0] != undefined){
-    document.getElementsByClassName("main__img")[0].addEventListener("mouseover", () => {
+  const elem = document.getElementsByClassName("main__img")[0];
+  if(elem != undefined){
+    elem.addEventListener("mouseover", () => {
       setTargetToCircle();
-      document.getElementsByClassName("main__img")[0].style.filter = "grayscale(0)";
-      document.getElementsByClassName("main__img")[0].style.transform = "scale(1.01)";
+      elem.style.filter = "grayscale(0)";
+      elem.style.transform = "scale(1.01)";
     });
-    document.getElementsByClassName("main__img")[0].addEventListener("mouseleave", () => {
+    elem.addEventListener("mouseleave", () => {
       setTargetToSquare();
-      document.getElementsByClassName("main__img")[0].style.filter = "grayscale(1)";
-      document.getElementsByClassName("main__img")[0].style.transform = "";
+      elem.style.filter = "grayscale(1)";
+      elem.style.transform = "";
     });
   }
 }
 
 function attachEventListenerBack(){
-  if(document.getElementsByClassName("detail__back")[0] != undefined){
-    document.getElementsByClassName("detail__back")[0].addEventListener("mouseover", () => {
+  const elem = document.getElementsByClassName("detail__back")[0];
+  if(elem != undefined){
+    elem.addEventListener("mouseover", () => {
       setTargetToTriangle();
-      document.getElementsByClassName("detail__back")[0].style.transform = "scale(1.1)";
+      elem.style.transform = "scale(1.1)";
       isBackHovered = true;
     })
-    document.getElementsByClassName("detail__back")[0].addEventListener("mouseleave", () => {
+    elem.addEventListener("mouseleave", () => {
       setTargetToSquare();
-      document.getElementsByClassName("detail__back")[0].style.transform = "scale(1)";
+      elem.style.transform = "scale(1)";
       isBackHovered = false;
     })
-    document.getElementsByClassName("detail__back")[0].addEventListener("click", () => {
+    elem.addEventListener("click", () => {
       isBackHovered = false;
       setTargetToSquare();
     })
   }
 }
 
+function attachEventListenerImage(){
+  const elems = document.getElementsByTagName("img");
+  if(elems.length != 0){
+    for(let elem of elems){
+      elem.addEventListener("mouseover", setTargetToCircle);
+      elem.addEventListener("mouseleave", setTargetToSquare);
+    }
+  }
+}
+
 function attachEventListenerMusic(){
-  if(document.getElementsByTagName("iframe").length != 0){
-    for(let elem of document.getElementsByTagName("iframe")){
+  const elems = document.getElementsByTagName("iframe");
+  if(elems.length != 0){
+    for(let elem of elems){
       elem.addEventListener("mouseover", setTargetToNoPoint);
       elem.addEventListener("mouseleave", setTargetToSquare);
     }
@@ -246,6 +259,7 @@ function attachEventListener(){
   attachEventListenerTitle("detail__title");
 
   attachEventListenerMusic();
+  attachEventListenerImage();
 }
 
 function observeUrlChange(){
