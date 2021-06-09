@@ -53,7 +53,9 @@ export class AppService {
           <div class="detail__piece--authorLeft">강민혁</div>
           친했던 친구들과 오랜만에 술한잔 하고 집에 돌아가는 길, 그때 그 향수에 취해 옛 기억을 되짚어보는 나
         </div>
+        <div class="test">
         <iframe class="detail__piece--iframeRight" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/474427755&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        </div>
       </div>
       <div class="detail__line"></div>
     `},
