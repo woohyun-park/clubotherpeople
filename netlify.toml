@@ -1,4 +1,4 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[build]
+  command = "npm run prerender"
+  functions = "./functions"
+  publish = "dist/angular-universal-pre-render/browser"

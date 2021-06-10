@@ -22,8 +22,8 @@ const router: Routes = [
     SubjectComponent,
   ],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot(router,{enableTracing:false}),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    RouterModule.forRoot(router, { enableTracing: false, initialNavigation: 'enabled' }),
   ],
   providers: [],
   bootstrap: [AppComponent]
