@@ -1,7 +1,7 @@
 [build]
   command = "npm run prerender"
   functions = "./functions"
-  publish = "dist/clubotherpeople"
+  publish = "dist/otherpeople"
 [[redirects]]
   from = "/*"
   to = "/index.html"
